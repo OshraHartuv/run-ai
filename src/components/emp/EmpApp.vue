@@ -1,16 +1,20 @@
 <template>
-  <section>
-    <raw>{{comp}}</raw>
+  <section class="emp-app" v-if="emps">
+    <emp-list :emps="emps"></emp-list>
   </section>
 </template>
 
 <script>
+import EmpList from "./EmpList.vue";
 export default {
-
   computed: {
-    comp(){
-      return this.$store.getters.currComp
+    emps() {
+      return this.$store.getters.currComp?.emps;
     }
+
+  },
+  components: {
+    EmpList
   }
 };
 </script>

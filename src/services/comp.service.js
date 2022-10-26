@@ -52,7 +52,7 @@ function _createComps() {
         comp.deps.forEach((dep) => {
             emps.push(..._createEmps(dep._id));
         });
-        comp.emps.push(emps);
+        comp.emps.push(...emps);
     });
     localStorage.setItem(KEY, JSON.stringify(comps));
     return comps;
