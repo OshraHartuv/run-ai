@@ -8,12 +8,8 @@
         v-click-outside="closeNav"
       >
         <a class="close-btn" @click="closeNav">&times;</a>
-        <!-- <div> -->
         <a @click="moveToView('emp')">Employees</a>
-        <!-- </div> -->
-        <!-- <a> -->
         <a @click="moveToView('dep')">Departments</a>
-        <!-- </a> -->
       </div>
       <span v-if="!isOpen" class="open-nav" @click="isOpen= true">&#9776;</span>
     </section>
@@ -30,7 +26,6 @@ export default {
   },
   methods: {
     closeNav() {
-      console.log("close");
       this.isOpen = false;
     },
     moveToView(view) {

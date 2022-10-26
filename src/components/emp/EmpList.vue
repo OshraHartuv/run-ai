@@ -1,6 +1,8 @@
 <template>
   <div class="emp-list">
-    <button class="add-btn">Add Employee</button>
+    <button class="add-btn">
+        <RouterLink :to="`/comp/${compId}/emp/edit`" >Add a new Employee</RouterLink>
+    </button>
     <table>
       <thead>
         <th>Name</th>
@@ -26,20 +28,17 @@ export default {
       EmpPreview
 
   },
-  data() {
-    return {};
-  },
-  created() {
-  },
   methods: {
     getDeptName(emp) {
       const deps = this.$store.getters.currComp.deps
       const dep = deps.find(dep=> dep._id===emp.depId)
       return dep.name
-    }
+    },
   },
   computed: {
-  },
-  unmounted() {}
+    compId(){
+      return this.$store.getters.currCompId
+    }
+  }
 };
 </script>

@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store';
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import './styles/styles.scss';
 
 const app = createApp(App)
@@ -15,10 +17,16 @@ app.directive('click-outside', {
                 binding.value(event, el);
             } 
         };
-        document.body.addEventListener('click', el.clickOutsideEvent);
+        setTimeout(()=>{
+            document.body.addEventListener('click', el.clickOutsideEvent);
+
+        },0)
     },
     unmounted(el) {
         document.body.removeEventListener('click', el.clickOutsideEvent);
     },
 });
+app.use(ElementPlus);
+
+
 app.mount('#app')

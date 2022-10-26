@@ -17,5 +17,3 @@ export const eventBus = {on, emit};
 export function showMsg(txt, type = 'success') {
   emit('show-msg', {txt, type});
 }
-
-// window.myBus = eventBusService;

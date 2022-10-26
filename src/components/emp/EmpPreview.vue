@@ -15,12 +15,6 @@ export default {
       required: true
     }
   },
-  components: {},
-  data() {
-    return {};
-  },
-  created() {
-  },
   methods: {
     getDeptName(emp) {
       const deps = this.$store.getters.currComp.deps;

@@ -1,6 +1,7 @@
 <template>
   <section class="emp-app" v-if="emps">
     <emp-list :emps="emps"></emp-list>
+    <routerView></routerView>
   </section>
 </template>
 

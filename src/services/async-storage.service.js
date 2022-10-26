@@ -2,9 +2,7 @@ export const storageService = {
   query,
   get,
   post,
-  postMany,
   put,
-  remove,
 }
 
 function query(entityType, delay = 10) {
@@ -31,16 +29,6 @@ function post(entityType, newEntity) {
   })
 }
 
-function postMany(entityType, newEntities) {
-  return query(entityType)
-      .then(entities => {
-          newEntities = newEntities.map(entity => ({...entity, _id: utilService.makeId()}))
-          entities.push(...newEntities)
-          _save(entityType, entities)
-          return entities
-      })
-}
-
 
 function put(entityType, updatedEntity) {
   return query(entityType).then((entities) => {
@@ -48,15 +36,6 @@ function put(entityType, updatedEntity) {
     entities.splice(idx, 1, updatedEntity)
     _save(entityType, entities)
     return updatedEntity
-  })
-}
-
-function remove(entityType, entityId) {
-  return query(entityType).then((entities) => {
-    const idx = entities.findIndex((entity) => entity._id === entityId)
-    if (idx < 0) throw new Error(`Unknown Entity ${entityId}`)
-    entities.splice(idx, 1)
-    _save(entityType, entities)
   })
 }
 
