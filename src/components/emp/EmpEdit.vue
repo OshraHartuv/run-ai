@@ -5,12 +5,12 @@
       <form v-if="empToEdit" @submit.prevent="save" class="emp-edit-form">
         <input type="text" placeholder="Employee name" v-model="empToEdit.name" />
         <label>
-          <el-select v-model="empToEdit.dep">
+          <el-select v-model="empToEdit.depId">
             <el-option
               v-for="dep in comp.deps"
               :key="dep._id"
-              :value="dep.name"
-              @click="setDepId(dep._id)"
+              :label="dep.name"
+              :value="dep._id"
             >{{dep.name}}</el-option>
           </el-select>
         </label>
@@ -36,7 +36,6 @@ export default {
       try {
         var compToSave = JSON.parse(JSON.stringify(this.comp));
         var empToSave = JSON.parse(JSON.stringify(this.empToEdit));
-        delete empToSave.dep;
         if (!(empToSave.depId || empToSave.name)) return
         compToSave.emps.push(empToSave);
         await this.$store.dispatch({
@@ -52,9 +51,6 @@ export default {
       this.empToEdit = null;
       this.$router.go(-1);
     },
-    setDepId(depId) {
-      this.empToEdit.depId = depId;
-    }
   },
   computed: {
     comp() {

@@ -19,8 +19,5 @@ export default {
       this.$emit("close");
     }
   },
-  created() {
-    console.log("name", this.name);
-  }
 };
 </script>

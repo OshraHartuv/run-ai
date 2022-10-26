@@ -6,7 +6,7 @@
         <span class="el-dropdown-link">Actions</span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="remove(dep._id)">Delete Employee</el-dropdown-item>
+            <el-dropdown-item @click="remove(dep._id)">Delete department</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
