@@ -29,7 +29,7 @@ export default {
         compToSave.emps.splice(idx, 1);
         await this.$store.dispatch({ type: "saveComp", comp: compToSave });
       } catch (err) {
-        console.log("Cannot remove toy", err);
+        console.log("Cannot remove toy ", err);
       }
     }
   },
