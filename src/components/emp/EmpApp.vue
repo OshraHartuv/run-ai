@@ -1,9 +1,9 @@
 <template>
-  <section class="emp-app" v-if="emps">
+  <section class="app" v-if="compId">
     <button class="add-btn">
       <RouterLink :to="`/comp/${compId}/emp/edit`">Add a new Employee</RouterLink>
     </button>
-    <emp-list :emps="emps" @remove="removeEmp"></emp-list>
+    <emp-list :emps="emps" @remove="removeEmp" v-if="emps && emps.length"></emp-list>
     <routerView></routerView>
   </section>
 </template>
@@ -29,7 +29,7 @@ export default {
         compToSave.emps.splice(idx, 1);
         await this.$store.dispatch({ type: "saveComp", comp: compToSave });
       } catch (err) {
-        console.log("Cannot remove toy ", err);
+        console.log("Cannot remove  employee " + id, err);
       }
     }
   },

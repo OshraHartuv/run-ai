@@ -1,6 +1,5 @@
 <template>
-  <div class="emp-list">
-    
+  <div class="list">
     <table>
       <thead>
         <th>Name</th>
