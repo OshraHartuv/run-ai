@@ -1,0 +1,43 @@
+.main-layout {
+
+    display: grid;
+    grid-template-columns: 2rem 1fr 2rem;
+    grid-template-rows: auto 1fr auto;
+    flex-grow: 1;
+
+    > * {
+        grid-column: 2;
+
+        &.full {
+            grid-column: 1 /-1;
+        }
+    }
+    @include for-narrow-layout {
+        grid-template-columns:
+        minmax(2rem, 1fr)
+        minmax(auto, $break-narrow)
+        minmax(2rem, 1fr);
+    }
+    
+    @include for-normal-layout {
+        grid-template-columns:
+        minmax(2rem, 1fr)
+        minmax(auto, $break-normal)
+        minmax(2rem, 1fr);
+    }
+
+    @include for-wide-layout {
+        grid-template-columns:
+        minmax(2rem, 1fr)
+        minmax(auto, $break-wide)
+        minmax(2rem, 1fr);
+    }
+
+}
+
+// CARDS
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 16px;
+}
