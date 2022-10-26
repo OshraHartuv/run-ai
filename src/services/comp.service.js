@@ -61,7 +61,7 @@ function _createComps() {
     var comps = [
         _createComp('Wolt'),
         _createComp('Mozner'),
-        _createComp('Elal'),
+        _createComp('ELAL'),
     ];
     comps.forEach((comp) => {
         var emps = [];
@@ -82,8 +82,6 @@ function _createComp(name, deps = _createDeps(), emps = []) {
         emps,
     };
 }
-
-
 
 function _createDeps() {
     const depNames = [

@@ -8,10 +8,12 @@
     &.cancel-btn {
         @include btn(regular, $clr3, $clr5, em(7.5px) em(10.5px));
     }
+    line-height: 2;
     align-self: center;
     margin-bottom: 15px;
     width: em(200px);
     justify-content: center;
+    line-height: 2;
     > * {
         color: $clr5;
         text-decoration: none;

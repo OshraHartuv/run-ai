@@ -37,6 +37,5 @@ export default {
       this.$emit("reassign", this.emps);
     }
   },
-  created() {}
 };
 </script>

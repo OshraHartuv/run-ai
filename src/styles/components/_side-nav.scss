@@ -44,6 +44,7 @@
         left: 5px;
         top:5px;
         @include btn(regular,  $clr3,$clr2, em(7.5px) em(10.5px));
+        line-height: 1.25;
         display:flex;
         justify-content: center;
         align-items: center;
