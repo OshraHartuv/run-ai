@@ -56,11 +56,11 @@ export default {
         var deps = this.deps.filter(dep => dep._id !== depId);
         this.depsToShow = JSON.parse(JSON.stringify(deps));
         var empsCopy = JSON.parse(JSON.stringify(this.comp.emps));
-        var emps = []
+        var emps = [];
         empsCopy.forEach(emp => {
           if (emp.depId === depId) {
-            emp.depId = ''
-            emps.push(emp)
+            emp.depId = "";
+            emps.push(emp);
           }
         });
         this.empsToReassign = emps;

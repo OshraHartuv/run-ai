@@ -5,6 +5,7 @@ import store from './store';
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import './styles/styles.scss';
+import Notifications from '@kyvg/vue3-notification';
 
 const app = createApp(App)
 
@@ -27,6 +28,7 @@ app.directive('click-outside', {
     },
 });
 app.use(ElementPlus);
+app.use(Notifications)
 
 
 app.mount('#app')

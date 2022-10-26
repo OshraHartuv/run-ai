@@ -3,6 +3,7 @@
     <app-header />
     <side-nav />
     <RouterView />
+    <notifications position="bottom right" />
   </section>
 </template>
 
