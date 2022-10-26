@@ -1,5 +1,5 @@
 <template>
-  <tr class="preview" @click.stop>
+  <tr class="preview">
     <td>{{dep.name}}</td>
     <td class="actions">
       <el-dropdown>

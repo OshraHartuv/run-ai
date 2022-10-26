@@ -5,7 +5,6 @@
       <form v-if="empToEdit" @submit.prevent="save" class="emp-edit-form">
         <input type="text" placeholder="Employee name" v-model="empToEdit.name" />
         <label>
-          <!-- Department -->
           <el-select v-model="empToEdit.dep">
             <el-option
               v-for="dep in comp.deps"

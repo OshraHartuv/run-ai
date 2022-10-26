@@ -1,5 +1,5 @@
 <template>
-  <tr class="preview" @click.stop>
+  <tr class="preview">
     <td>{{emp.name}}</td>
     <td>{{getDeptName(emp)}}</td>
     <td class="actions">

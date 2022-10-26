@@ -1,6 +1,6 @@
 <template>
   <section class="app" v-if="compId">
-    <button class="add-btn">
+    <button class="add-btn btn">
       <RouterLink :to="`/comp/${compId}/emp/edit`">Add a new Employee</RouterLink>
     </button>
     <emp-list :emps="emps" @remove="removeEmp" v-if="emps && emps.length"></emp-list>

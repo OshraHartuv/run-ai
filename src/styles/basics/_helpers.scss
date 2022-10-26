@@ -1,7 +1,15 @@
-.add-btn {
+.btn {
+    &.add-btn {
+        @include btn(regular, $clr2, $clr5, em(7.5px) em(10.5px));
+    }
+    &.confirm-btn {
+        @include btn(regular, $clr2, $clr5, em(7.5px) em(10.5px));
+    }
+    &.cancel-btn {
+        @include btn(regular, $clr3, $clr5, em(7.5px) em(10.5px));
+    }
     align-self: center;
     margin-bottom: 15px;
-    @include btn(regular, $clr2, $clr5, em(7.5px) em(10.5px));
     width: em(200px);
     justify-content: center;
     > * {
