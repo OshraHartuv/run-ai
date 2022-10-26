@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import toyModule from './modules/toy.module';
+import compModule from './modules/comp.module';
 
 const store = createStore({
     strict: true,
@@ -8,7 +8,7 @@ const store = createStore({
     mutations: {},
     actions: {},
     modules: {
-        toyModule,
+        compModule,
     },
 });
 
