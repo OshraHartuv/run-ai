@@ -2,84 +2,85 @@ import compService from '@/services/comp.service.js';
 
 export default {
     state: {
-        // toys: [],
+        comps: [],
         // filterBy: {
         //     name: '',
         //     departmentId: ''
         // }
     },
     getters: {
-        // toys(state) {
-        //     return state.toys;
-        // },
-        // toysToShow(state) {
-        //     var toys = state.toys;
+        comps(state) {
+            return state.comps;
+        },
+        miniComps(state) {
+            return state.comps.map(comp => ({_id: comp._id, name: comp.name}));
+        },
+        // compsToShow(state) {
+        //     var comps = state.comps;
         //     var {name} = state.filterBy
         //     if (name) {
         //         const regex = new RegExp(name, 'i')
-        //         toys = toys.filter((toy) => regex.test(toy.name));
+        //         comps = comps.filter((comp) => regex.test(comp.name));
         //     }
 
         //     // if (departmentId) {
-        //     //     toys = companies.
+        //     //     comps = compsanies.
         //     // }
-        //     return toys;
+        //     return comps;
         // },
     },
     mutations: {
-        // setToys(state, { toys }) {
-        //     state.toys = toys;
+        setComps(state, { comps }) {
+            state.comps = comps;
+        },
+        // removeComp({ comps }, { id }) {
+        //     const idx = comps.findIndex((comp) => comp._id === id);
+        //     comps.splice(idx, 1);
         // },
-        // removeToy({ toys }, { id }) {
-        //     const idx = toys.findIndex((toy) => toy._id === id);
-        //     toys.splice(idx, 1);
-        // },
-        // saveToy({ toys }, { toy }) {
-        //     const idx = toys.findIndex((currToy) => currToy._id === toy._id);
-        //     idx === -1 ? toys.push(toy) : toys.splice(idx, 1, toy);
+        // saveComp({ comps }, { comp }) {
+        //     const idx = comps.findIndex((currComp) => currComp._id === comp._id);
+        //     idx === -1 ? comps.push(comp) : comps.splice(idx, 1, comp);
         // },
         // setFilter(state, { filterBy }) {
         //     state.filterBy = filterBy;
         // },
     },
     actions: {
-    //     async loadToys(context) {
-    //         try {
-    //             const filterBy = { ...context.state.filterBy };
-    //             const toys = await toyService.query(filterBy);
-    //             context.commit({ type: 'setToys', toys });
-    //         } catch (err) {
-    //             console.log("can't load toys:", err);
-    //         }
-    //     },
-    //     async removeToy({ commit }, { id }) {
-    //         try {
-    //             await toyService.remove(id);
-    //             commit({ type: 'removeToy', id });
-    //         } catch (err) {
-    //             console.log('cannot remove toy', err);
-    //         }
-    //     },
-    //     async saveToy({ commit }, { toy }) {
-    //         try {
-    //             const savedToy = await toyService.save(toy);
-    //             commit({ type: 'saveToy', toy: savedToy });
-    //             return savedToy;
-    //         } catch (err) {
-    //             console.log(`can't save toy ${toy_id || ''}: ${err}`);
-    //         }
-    //     },
-    //     async getToyById(context, { toyId }) {
-    //         try {
-    //             return await toyService.getById(toyId);
-    //         } catch (err) {
-    //             console.log(`can't get toy ${toyId}: ${err}`);
-    //         }
-    //     },
-    //     async setFilter({ commit, dispatch }, { filterBy }) {
-    //         commit({ type: 'setFilter', filterBy });
-    //         await dispatch({ type: 'loadToys' });
-    //     },
+        async loadComps({ commit }) {
+            try {
+                const comps = await compService.query();
+                commit({ type: 'setComps', comps });
+            } catch (err) {
+                console.log("can't load comps:", err);
+            }
+        },
+        //     async removeComp({ commit }, { id }) {
+        //         try {
+        //             await compService.remove(id);
+        //             commit({ type: 'removeComp', id });
+        //         } catch (err) {
+        //             console.log('cannot remove comp', err);
+        //         }
+        //     },
+        //     async saveComp({ commit }, { comp }) {
+        //         try {
+        //             const savedComp = await compService.save(comp);
+        //             commit({ type: 'saveComp', comp: savedComp });
+        //             return savedComp;
+        //         } catch (err) {
+        //             console.log(`can't save comp ${comp_id || ''}: ${err}`);
+        //         }
+        //     },
+        //     async getCompById(context, { compId }) {
+        //         try {
+        //             return await compService.getById(compId);
+        //         } catch (err) {
+        //             console.log(`can't get comp ${compId}: ${err}`);
+        //         }
+        //     },
+        //     async setFilter({ commit, dispatch }, { filterBy }) {
+        //         commit({ type: 'setFilter', filterBy });
+        //         await dispatch({ type: 'loadComps' });
+        //     },
     },
 };
-

@@ -2,7 +2,7 @@ import { storageService } from './async-storage.service.js';
 import { utilService } from './util.service.js';
 
 const KEY = 'compDB';
-_createComps();
+
 export default {
     query,
     getById,
@@ -50,12 +50,11 @@ function _createComps() {
     comps.forEach((comp) => {
         var emps = [];
         comp.deps.forEach((dep) => {
-            emps.push(..._createEmps(dep._id))
+            emps.push(..._createEmps(dep._id));
         });
         comp.emps.push(emps);
     });
     localStorage.setItem(KEY, JSON.stringify(comps));
-    console.log('comps ', comps);
     return comps;
 }
 

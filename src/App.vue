@@ -15,6 +15,9 @@ export default {
   components: {
     AppHeader,
     SideNav
+  },
+    async created() {
+    await this.$store.dispatch({ type: "loadComps" });
   }
 };
 </script>
