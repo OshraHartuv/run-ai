@@ -33,16 +33,6 @@ const router = createRouter({
                 ], },
             ],
         },
-        // {
-        //     path: '/comp/emp/:id?',
-        //     name: 'comp',
-        //     component: compView,
-        // },
-        // {
-        //     path: '/comp/dep/:id?',
-        //     name: 'comp',
-        //     component: compView,
-        // },
     ],
 });
 
