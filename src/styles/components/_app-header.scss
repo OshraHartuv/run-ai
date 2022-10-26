@@ -9,10 +9,6 @@
             font-size: em(40px);
             color: $clr5;
             text-decoration: none;
-
-            &.router-link-exact-active {
-                text-decoration: underline;
-              }
         }
     }
 }
