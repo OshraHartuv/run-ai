@@ -35,23 +35,23 @@ export default {
     },
     moveToView(view) {
       this.closeNav();
-      const navTo = `/comp/${this.compId}/${view}`
-      if (navTo === this.$router.currentRoute._value.fullPath) return
-      this.$router.push( `/comp/${this.compId}/${view}`);
+      const navTo = `/comp/${this.compId}/${view}`;
+      if (navTo === this.$router.currentRoute._value.fullPath) return;
+      this.$router.push(`/comp/${this.compId}/${view}`);
     }
   },
   watch: {
     $route: {
       handler({ params }) {
         const { id } = params;
-        if (id) this.compId = id;
+        if (id) {
+          this.compId = id;
+          this.$store.dispatch({ type: "setCompId", compId: this.compId });
+        }
       },
       deep: true,
       immediate: true
     }
-  },
-  created() {
-    this.compId = this.$route.params.id;
   }
 };
 </script>

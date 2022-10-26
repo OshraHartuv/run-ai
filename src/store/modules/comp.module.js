@@ -3,6 +3,7 @@ import compService from '@/services/comp.service.js';
 export default {
     state: {
         comps: [],
+        currCompId: null,
         // filterBy: {
         //     name: '',
         //     departmentId: ''
@@ -13,7 +14,16 @@ export default {
             return state.comps;
         },
         miniComps(state) {
-            return state.comps.map(comp => ({_id: comp._id, name: comp.name}));
+            return state.comps.map((comp) => ({
+                _id: comp._id,
+                name: comp.name,
+            }));
+        },
+        currCompId(state) {
+            return state.currCompId;
+        },
+        currComp(state) {
+            return state.comps.find(comp => comp._id === state.currCompId);
         },
         // compsToShow(state) {
         //     var comps = state.comps;
@@ -32,6 +42,9 @@ export default {
     mutations: {
         setComps(state, { comps }) {
             state.comps = comps;
+        },
+        setCompId(state, { compId }) {
+            state.currCompId = compId;
         },
         // removeComp({ comps }, { id }) {
         //     const idx = comps.findIndex((comp) => comp._id === id);
@@ -54,6 +67,16 @@ export default {
                 console.log("can't load comps:", err);
             }
         },
+        setCompId({ commit }, { compId }) {
+            commit({ type: 'setCompId', compId });
+        },
+        async getCompById(context, { compId }) {
+            try {
+                return await compService.getById(compId);
+            } catch (err) {
+                console.log(`can't get comp ${compId}: ${err}`);
+            }
+        },
         //     async removeComp({ commit }, { id }) {
         //         try {
         //             await compService.remove(id);
@@ -69,13 +92,6 @@ export default {
         //             return savedComp;
         //         } catch (err) {
         //             console.log(`can't save comp ${comp_id || ''}: ${err}`);
-        //         }
-        //     },
-        //     async getCompById(context, { compId }) {
-        //         try {
-        //             return await compService.getById(compId);
-        //         } catch (err) {
-        //             console.log(`can't get comp ${compId}: ${err}`);
         //         }
         //     },
         //     async setFilter({ commit, dispatch }, { filterBy }) {
