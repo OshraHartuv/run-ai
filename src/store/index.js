@@ -1,25 +1,15 @@
-import {createStore} from 'vuex';
+import { createStore } from 'vuex';
 import toyModule from './modules/toy.module';
 
 const store = createStore({
-  strict: true,
-  state: {
-    count: 10,
-  },
-  getters: {
-    count(state) {
-      return state.count;
+    strict: true,
+    state: {},
+    getters: {},
+    mutations: {},
+    actions: {},
+    modules: {
+        toyModule,
     },
-  },
-  mutations: {
-    setCount(state, {count}) {
-      state.count = count;
-    },
-  },
-  actions: {},
-  modules: {
-    toyModule,
-  },
 });
 
 export default store;
