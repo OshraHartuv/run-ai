@@ -1,7 +1,7 @@
 <template>
   <section class="app" v-if="compId">
     <button class="add-btn btn">
-      <RouterLink :to="`/comp/${compId}/dep/edit`">Add a new Department</RouterLink>
+      <RouterLink :to="`/comp/${compId}/dep/edit`">Add a new department</RouterLink>
     </button>
     <dep-list :deps="deps" @remove="showModal" v-if="deps && deps.length"></dep-list>
     <reassign-modal

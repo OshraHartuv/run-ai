@@ -11,7 +11,7 @@
         <a @click="moveToView('emp')">Employees</a>
         <a @click="moveToView('dep')">Departments</a>
       </div>
-      <span v-if="!isOpen" class="open-nav" @click="isOpen= true">&#9776;</span>
+      <div v-if="!isOpen" class="open-nav" @click="isOpen= true"><div>&#9776;</div></div>
     </section>
   </section>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <section class="app" v-if="compId">
     <button class="add-btn btn">
-      <a @click="openEditModal" @setFilter="setFilter">Add a new Employee</a>
+      <a @click="openEditModal" @setFilter="setFilter">Add a new employee</a>
     </button>
     <emp-filter
       v-if="comp && comp.deps"

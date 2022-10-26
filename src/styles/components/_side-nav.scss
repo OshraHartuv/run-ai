@@ -24,6 +24,12 @@
                 color: #f1f1f1;
             }
         }
+
+        >*{
+            &:hover{
+                cursor: pointer;
+            }
+        }
         .close-btn {
             position: absolute;
             top: 0;
@@ -37,8 +43,13 @@
         position: absolute;
         left: 5px;
         top:5px;
-        // padding: 10px;
-        // font-size: 20px;
-        @include btn(regular,  $clr4,$clr2, em(7.5px) em(10.5px))
+        @include btn(regular,  $clr3,$clr2, em(7.5px) em(10.5px));
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            padding-top: 5px;
+        }
     }
 }
