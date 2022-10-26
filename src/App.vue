@@ -17,8 +17,17 @@ export default {
     AppHeader,
     SideNav
   },
-    async created() {
-    await this.$store.dispatch({ type: "loadComps" });
+  async created() {
+    try {
+      await this.$store.dispatch({ type: "loadComps" });
+    } catch (err) {
+      console.log('can\'t load companies',err);
+      this.$notify({
+        text: "Oops... Something went wrong",
+        title: "Error",
+        type: "error"
+      });
+    }
   }
 };
 </script>

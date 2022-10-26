@@ -1,8 +1,8 @@
 <template>
   <div class="modal-wrapper" v-if="comp">
-    <section class="emp-edit wrapped-modal" v-click-outside="closeModal">
+    <section class="edit-modal wrapped-modal" v-click-outside="closeModal">
       <h3>Add a new '{{ comp.name }}' employee</h3>
-      <form v-if="empToEdit" @submit.prevent="save" class="emp-edit-form">
+      <form v-if="empToEdit" @submit.prevent="save" class="edit-modal-form">
         <input type="text" placeholder="Employee name" v-model="empToEdit.name" />
         <label>
           <el-select v-model="empToEdit.depId">
@@ -36,7 +36,7 @@ export default {
       try {
         var compToSave = JSON.parse(JSON.stringify(this.comp));
         var empToSave = JSON.parse(JSON.stringify(this.empToEdit));
-        if (!(empToSave.depId || empToSave.name)) return
+        if (!(empToSave.depId || empToSave.name)) return;
         compToSave.emps.push(empToSave);
         await this.$store.dispatch({
           type: "saveComp",
@@ -45,12 +45,17 @@ export default {
         this.closeModal();
       } catch (err) {
         console.log("can't add employee ", err);
+        this.$notify({
+          text: "Oops... Something went wrong",
+          title: "Error",
+          type: "error"
+        });
       }
     },
     closeModal() {
       this.empToEdit = null;
       this.$router.go(-1);
-    },
+    }
   },
   computed: {
     comp() {

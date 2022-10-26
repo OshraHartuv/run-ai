@@ -43,6 +43,7 @@ export default {
                 commit({ type: 'setComps', comps });
             } catch (err) {
                 console.log("can't load comps:", err);
+                throw err
             }
         },
         setCompId({ commit }, { compId }) {
@@ -53,6 +54,7 @@ export default {
                 return await compService.getById(compId);
             } catch (err) {
                 console.log(`can't get comp ${compId}: ${err}`);
+                throw err
             }
         },
         async saveComp({ commit }, { comp }) {
@@ -62,6 +64,7 @@ export default {
                 return savedComp;
             } catch (err) {
                 console.log(`can't save comp ${comp_id || ''}: ${err}`);
+                throw err
             }
         },
     },

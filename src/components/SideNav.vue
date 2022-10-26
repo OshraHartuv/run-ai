@@ -41,7 +41,10 @@ export default {
         const { id } = params;
         if (id) {
           this.compId = id;
-          this.$store.dispatch({ type: "setCompId", compId: this.compId });
+          this.$store.dispatch({
+            type: "setCompId",
+            compId: this.compId
+          });
         }
       },
       deep: true,

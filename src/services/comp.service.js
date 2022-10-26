@@ -38,6 +38,7 @@ async function save(comp) {
             : storageService.post(KEY, comp);
     } catch (err) {
         console.log(`can't save comp ${comp_id || ''}: ${err}`);
+        throw err;
     }
 }
 

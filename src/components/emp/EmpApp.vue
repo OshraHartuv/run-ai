@@ -34,6 +34,11 @@ export default {
         await this.$store.dispatch({ type: "saveComp", comp: compToSave });
       } catch (err) {
         console.log("Cannot remove  employee " + id, err);
+        this.$notify({
+        text: "Oops... Something went wrong",
+        title: "Error",
+        type: "error"
+      });
       }
     },
     openEditModal(){

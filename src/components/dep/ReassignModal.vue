@@ -1,8 +1,8 @@
 <template>
   <div class="modal-wrapper">
-    <section class="reassign-modal wrapped-modal" v-click-outside="closeModal">
+    <section class="edit-modal wrapped-modal" v-click-outside="closeModal">
       <h3>Please reassign employees</h3>
-      <form v-if="emps && emps.length" @submit.prevent="save">
+      <form v-if="emps && emps.length" @submit.prevent="save" class="edit-modal-form">
         <div v-for="(emp) in emps" :key="emp._id">
           <h4>{{emp.name}}</h4>
           <el-select v-model="emp.depId">
@@ -34,10 +34,9 @@ export default {
       this.$emit("close");
     },
     save() {
-      this.$emit("reassign",this.emps );
+      this.$emit("reassign", this.emps);
     }
   },
-  created() {
-  }
+  created() {}
 };
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div class="modal-wrapper" v-if="comp">
-    <section class="emp-edit wrapped-modal" v-click-outside="closeModal">
+    <section class="edit-modal wrapped-modal" v-click-outside="closeModal">
       <h3>Add a new '{{ comp.name }}' department</h3>
-      <form v-if="depToEdit" @submit.prevent="save" class="emp-edit-form">
+      <form v-if="depToEdit" @submit.prevent="save" class="edit-modal-form">
         <input type="text" placeholder="Department name" v-model="depToEdit.name" />
         <button>Save</button>
       </form>
@@ -35,6 +35,11 @@ export default {
         this.closeModal();
       } catch (err) {
         console.log("can't add employee ", err);
+        this.$notify({
+        text: "Oops... Something went wrong",
+        title: "Error",
+        type: "error"
+      });
       }
     },
     closeModal() {

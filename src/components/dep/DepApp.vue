@@ -78,7 +78,12 @@ export default {
         await this.$store.dispatch({ type: "saveComp", comp: compToSave });
         this.depToDelete = null;
       } catch (err) {
-        console.log("Cannot remove department " + this.depToDelete._id, err);
+        console.log("Cannot remove department ", err);
+        this.$notify({
+          text: "Oops... Something went wrong",
+          title: "Error",
+          type: "error"
+        });
       }
     },
     async reassign(emps) {
@@ -94,12 +99,18 @@ export default {
             compToSave.emps.splice(idx, 1);
           }
         });
+
         await this.$store.dispatch({ type: "saveComp", comp: compToSave });
         this.empsToReassign = [];
         this.depsToShow = [];
         this.showModal(this.depToDeleteId);
       } catch (err) {
         console.log("can't reassign employees", err);
+        this.$notify({
+        text: "Oops... Something went wrong",
+        title: "Error",
+        type: "error"
+      });
       }
     },
     closeModal() {
