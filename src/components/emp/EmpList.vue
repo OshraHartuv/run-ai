@@ -1,6 +1,6 @@
 <template>
   <div class="emp-list">
-    <button>Add Employee</button>
+    <button class="add-btn">Add Employee</button>
     <table>
       <thead>
         <th>Name</th>
@@ -9,11 +9,6 @@
       </thead>
       <tbody v-for="emp in emps" :key="emp._id">
         <emp-preview :emp="emp"></emp-preview>
-        <!-- <tr>
-          <td>{{emp.name}}</td>
-          <td>{{getDeptName(emp)}}</td>
-          <td>...</td>
-        </tr> -->
       </tbody>
     </table>
   </div>
