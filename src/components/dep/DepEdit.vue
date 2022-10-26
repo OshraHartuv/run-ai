@@ -3,7 +3,7 @@
     <section class="edit-modal wrapped-modal" v-click-outside="closeModal">
       <h3>Add a new '{{ comp.name }}' department</h3>
       <form v-if="depToEdit" @submit.prevent="save" class="edit-modal-form">
-        <input type="text" placeholder="Department name" v-model="depToEdit.name" />
+        <el-input type="text" placeholder="Department name" v-model="depToEdit.name" />
         <button>Save</button>
       </form>
     </section>

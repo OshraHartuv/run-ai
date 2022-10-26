@@ -4,6 +4,9 @@ export default {
     state: {
         comps: [],
         currCompId: null,
+        filterBy: {
+            deps: [],
+        },
     },
     getters: {
         comps(state) {
@@ -21,6 +24,19 @@ export default {
         currComp(state) {
             return state.comps.find((comp) => comp._id === state.currCompId);
         },
+        filteredEmps(state, getters) {
+            if (!getters.currComp) return 
+            let emps =  JSON.parse(JSON.stringify(getters.currComp)).emps;
+            let { deps ,name } = state.filterBy;
+            if (deps && deps.length) {
+                emps = emps.filter(emp=> deps.includes(emp.depId))
+            }
+            if (name){
+                const regex = new RegExp(name, 'i')
+                emps = emps.filter((emp) => regex.test(emp.name));
+            }
+            return emps
+        },
     },
     mutations: {
         setComps(state, { comps }) {
@@ -35,6 +51,9 @@ export default {
             );
             idx === -1 ? comps.push(comp) : comps.splice(idx, 1, comp);
         },
+        setFilter(state, { filterBy }) {
+            state.filterBy = filterBy;
+        },
     },
     actions: {
         async loadComps({ commit }) {
@@ -43,7 +62,7 @@ export default {
                 commit({ type: 'setComps', comps });
             } catch (err) {
                 console.log("can't load comps:", err);
-                throw err
+                throw err;
             }
         },
         setCompId({ commit }, { compId }) {
@@ -54,7 +73,7 @@ export default {
                 return await compService.getById(compId);
             } catch (err) {
                 console.log(`can't get comp ${compId}: ${err}`);
-                throw err
+                throw err;
             }
         },
         async saveComp({ commit }, { comp }) {
@@ -64,8 +83,11 @@ export default {
                 return savedComp;
             } catch (err) {
                 console.log(`can't save comp ${comp_id || ''}: ${err}`);
-                throw err
+                throw err;
             }
+        },
+        setFilter({ commit}, { filterBy }) {
+            commit({ type: 'setFilter', filterBy });
         },
     },
 };

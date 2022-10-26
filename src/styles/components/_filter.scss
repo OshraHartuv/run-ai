@@ -1,0 +1,12 @@
+.filter {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    label {
+        gap: 5px;
+        display: flex;
+    }
+}
