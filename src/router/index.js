@@ -4,6 +4,7 @@ import CompView from '../views/compView.vue';
 import EmpApp from '../components/emp/EmpApp.vue';
 import DepApp from '../components/dep/DepApp.vue';
 import EmpEdit from '../components/emp/EmpEdit.vue';
+import DepEdit from '../components/dep/DepEdit.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,7 +27,10 @@ const router = createRouter({
                         { path: 'edit', name: 'empEdit', component: EmpEdit },
                     ],
                 },
-                { path: 'dep', name: 'depApp', component: DepApp },
+                { path: 'dep', name: 'depApp', component: DepApp,
+                children: [
+                    { path: 'edit', name: 'depEdit', component: DepEdit },
+                ], },
             ],
         },
         // {

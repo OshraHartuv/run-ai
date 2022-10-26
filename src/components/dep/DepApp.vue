@@ -1,11 +1,10 @@
 <template>
   <section class="app" v-if="compId">
     <button class="add-btn">
-      <!-- <RouterLink :to="`/comp/${compId}/emp/edit`">Add a new Employee</RouterLink> -->
-      <RouterLink to="/">Add a new Department</RouterLink>
+      <RouterLink :to="`/comp/${compId}/dep/edit`">Add a new Department</RouterLink>
     </button>
     <dep-list :deps="deps" @remove="removeDep" v-if="deps && deps.length"></dep-list>
-    <!-- <routerView></routerView> -->
+    <routerView></routerView>
   </section>
 </template>
 

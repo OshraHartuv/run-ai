@@ -7,7 +7,8 @@ export default {
     query,
     getById,
     save,
-   getEmp
+    getEmp,
+    getDep,
 };
 
 async function query(filterBy) {
@@ -40,12 +41,18 @@ async function save(comp) {
     }
 }
 
-
-function getEmp(name = '', depId='') {
+function getEmp(name = '', depId = '') {
     return {
         _id: utilService.makeId(),
         name,
         depId,
+    };
+}
+
+function getDep(name) {
+    return {
+        _id: utilService.makeId(),
+        name,
     };
 }
 
@@ -75,12 +82,7 @@ function _createComp(name, deps = _createDeps(), emps = []) {
     };
 }
 
-function _createDep(name) {
-    return {
-        _id: utilService.makeId(),
-        name,
-    };
-}
+
 
 function _createDeps() {
     const depNames = [
@@ -93,7 +95,7 @@ function _createDeps() {
         'Marketing',
         'Sales',
     ];
-    return depNames.map((name) => _createDep(name));
+    return depNames.map((name) => getDep(name));
 }
 
 function _createEmps(depId) {

@@ -3,7 +3,7 @@
     <section class="emp-edit wrapped-modal" v-click-outside="closeModal">
       <h3>Add a new '{{ comp.name }}' employee</h3>
       <form v-if="empToEdit" @submit.prevent="save" class="emp-edit-form">
-        <input type="text" placeholder="Fullname" v-model="empToEdit.name" />
+        <input type="text" placeholder="Employee name" v-model="empToEdit.name" />
         <label>
           <!-- Department -->
           <el-select v-model="empToEdit.dep">
