@@ -1,0 +1,11 @@
+.add-btn {
+    align-self: center;
+    margin-bottom: 15px;
+    @include btn(regular, $clr2, $clr5, em(7.5px) em(10.5px));
+    width: em(200px);
+    justify-content: center;
+    > * {
+        color: $clr5;
+        text-decoration: none;
+    }
+}

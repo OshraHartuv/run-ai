@@ -1,16 +1,14 @@
 <template>
   <div class="emp-list">
-    <button class="add-btn">
-        <RouterLink :to="`/comp/${compId}/emp/edit`" >Add a new Employee</RouterLink>
-    </button>
+    
     <table>
       <thead>
         <th>Name</th>
         <th>Department</th>
-        <th>Actions</th>
+        <th></th>
       </thead>
       <tbody v-for="emp in emps" :key="emp._id">
-        <emp-preview :emp="emp"></emp-preview>
+        <emp-preview :emp="emp" @remove="remove"></emp-preview>
       </tbody>
     </table>
   </div>
@@ -34,11 +32,10 @@ export default {
       const dep = deps.find(dep=> dep._id===emp.depId)
       return dep.name
     },
-  },
-  computed: {
-    compId(){
-      return this.$store.getters.currCompId
+      remove(id) {
+      this.$emit("remove", id);
     }
-  }
+  },
+
 };
 </script>
