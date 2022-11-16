@@ -1,10 +1,10 @@
-# runai
+# Companier
 
 Deployed at: https://oshrahartuv.github.io/company-management/
 
-There are two branches: "main" for the four hours limit and "v2" that I kept working on. 
+Companier is an app that allows companies management in two main areas: departments and employees.
 
-Thank you for the opportunity! 
+It does so by having full add/delete support for departments / employees of each company, with a special feature of employees reassign to a different department.
 
 <img src="https://res.cloudinary.com/oshra/image/upload/v1666823041/home_z4p7bk.png"/>
 
