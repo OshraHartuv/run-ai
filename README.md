@@ -1,6 +1,6 @@
 # runai
 
-Deployed at: https://oshrahartuv.github.io/run-ai/
+Deployed at: https://oshrahartuv.github.io/company-management/
 
 There are two branches: "main" for the four hours limit and "v2" that I kept working on. 
 
