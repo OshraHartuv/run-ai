@@ -1,35 +1,15 @@
 # runai
 
-This template should help get you started developing with Vue 3 in Vite.
+Deployed at: https://oshrahartuv.github.io/run-ai/
 
-## Recommended IDE Setup
+There are two branches: "main" for the four hours limit and "v2" that I kept working on. 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Thank you for the opportunity! 
 
-## Customize configuration
+<img src="https://res.cloudinary.com/oshra/image/upload/v1666823041/home_z4p7bk.png"/>
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+<img src="https://res.cloudinary.com/oshra/image/upload/v1666823039/emp_hzgojo.png"/>
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
+<img src="https://res.cloudinary.com/oshra/image/upload/v1666823039/dep_kdcucu.png"/>
